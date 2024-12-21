@@ -1,0 +1,9 @@
+tempCodeRunnerFile.py
+*/__pycache__
+*.pyc
+oxc
+.ignore_scan
+temp.py
+build
+.vscode
+*.spec

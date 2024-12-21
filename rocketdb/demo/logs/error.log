@@ -1,0 +1,3 @@
+ERROR:COLUMN : column id already exists
+ERROR:COLUMN : column task already exists
+ERROR:COLUMN : column status already exists

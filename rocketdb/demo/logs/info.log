@@ -1,0 +1,9 @@
+SUCCESS:COLUMN : Created 1 Column sucessfully
+SUCCESS:COLUMN : Created 1 Column sucessfully
+SUCCESS:COLUMN : Created 1 Column sucessfully
+SUCCESS:ROW : sucessfully added to 'demo'
+SUCCESS:TABLE : changes made in status,from False -> True
+SUCCESS:TABLE : changes made in status,from True -> False
+SUCCESS:TABLE : changes made in status,from False -> True
+SUCCESS:TABLE : changes made in status,from True -> False
+SUCCESS:TABLE : changes made in status,from False -> True

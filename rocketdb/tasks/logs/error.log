@@ -1,0 +1,19 @@
+ERROR:CHECKUP: DataType int required for 1
+ERROR:CHECKUP: DataType int required for 2
+ERROR:CHECKUP: DataType int required for 3
+ERROR:CHECKUP: DataType int required for 4
+ERROR:PRIMARY KEY : 4 exits in the id
+ERROR:PRIMARY KEY : 5 exits in the id
+ERROR:ROW : element 5 not found in id
+ERROR:PRIMARY KEY : 3 exits in the id
+ERROR:PRIMARY KEY : 5 exits in the id
+ERROR:ROW : element 6 not found in id
+ERROR:ROW : element 5 not found in id
+ERROR:COLUMN : column id already exists
+ERROR:COLUMN : column task already exists
+ERROR:COLUMN : column status already exists
+ERROR:PRIMARY KEY : 1 exits in the id
+ERROR:TABLE : Column status is already True
+ERROR:PRIMARY KEY : dasda exits in the task
+ERROR:TABLE : table is empty
+ERROR:PRIMARY KEY : dsada exits in the task

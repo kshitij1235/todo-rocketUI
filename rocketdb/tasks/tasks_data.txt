@@ -1,0 +1,4 @@
+{ 
+ task : str
+ status : bool
+}

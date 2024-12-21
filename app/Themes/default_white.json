@@ -1,0 +1,24 @@
+{
+    "name":"default_white",
+    "bg_color":"",
+    "fg_color":"",
+    "components":{
+        "checkbox":{
+            "width": 100,
+            "height":  24,
+            "checkbox_width":  24,
+            "checkbox_height" :  24,
+            "corner_radius": "",
+            "border_width": "",
+            "bg_color": "transparent",
+            "fg_color": "#C29130",
+            "hover_color":"#C29130", 
+            "border_color": "",
+            "checkmark_color": "",
+            "text_color":"black",
+            "text_color_disabled":"", 
+            "text": "Rocket Checkbox",
+            "font": ""
+       }
+    }
+}

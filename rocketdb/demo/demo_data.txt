@@ -1,0 +1,5 @@
+{ 
+ id : int
+ task : str
+ status : bool
+}
