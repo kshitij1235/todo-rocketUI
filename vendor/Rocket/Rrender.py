@@ -57,11 +57,8 @@ def rerender_component(parent, component_constructor, *args, **kwargs):
         *args: Positional arguments to pass to the component constructor.
         **kwargs: Keyword arguments to pass to the component constructor.
     """
-    # Clear the parent widget's children
     for widget in parent.winfo_children():
-        widget.destroy()
-
-    # Re-add the component
+        widget.pack_forget()
     new_component = component_constructor(parent, *args, **kwargs)
     try : 
         new_component.pack(fill="both", expand=True)  # Adjust layout as needed

@@ -29,12 +29,14 @@ def cleanup_(files_to_remove : list = [],
                     print(f"clean dir: {dir_path}")
                 except OSError as e:
                     print(f"Error removing directory {dir_path}: {e}")
-
+import os
+import subprocess
 
 def create_executable(script_path: str = "main.py", 
                       resource_dir: str = "resources/images",
                       onefile: bool = True,
-                      output_dir: str = "./build"):
+                      output_dir: str = "./build",
+                      windowed: bool = True):
     """
     Creates a standalone executable from a given Python script using PyInstaller, 
     including all resources from a directory, and allows specifying output directory.
@@ -44,6 +46,7 @@ def create_executable(script_path: str = "main.py",
     resource_dir (str): The path to the resources directory to be included in the executable.
     onefile (bool): Whether to create a single-file executable (default: True).
     output_dir (str): The directory to store the output executable (default: './dist').
+    windowed (bool): Whether to suppress the console window for GUI applications (default: True).
     """
     if not os.path.isfile(script_path):
         raise FileNotFoundError(f"The script file '{script_path}' does not exist.")
@@ -55,19 +58,27 @@ def create_executable(script_path: str = "main.py",
     os.makedirs(output_dir, exist_ok=True)
 
     # Build the PyInstaller command
-    command = [
-    'pyinstaller',
-    '--onefile' if onefile else '',
-    script_path,
-    '--add-data',
-    f'{resource_dir}{os.pathsep}resources/images',
-    '--distpath',
-    output_dir
-    ]
+    command = ['pyinstaller']
 
-    # Remove empty strings from the command list
+    # Add the onefile flag if True
+    if onefile:
+        command.append('--onefile')
+
+    # Add windowed (no console) flag if the windowed argument is True
+    if windowed:
+        command.append('--noconsole')  # or '--windowed'
+
+    # Specify the script to run
+    command.append(script_path)
+
+    # Add resources with the correct format for --add-data
+    command.append(f'--add-data={resource_dir}{os.pathsep}resources/images')
+
+    # Specify the output directory for the executable
+    command.append(f'--distpath={output_dir}')
+
+    # Remove any empty strings from the command list
     command = [arg for arg in command if arg]
-
 
     try:
         # Run PyInstaller with the constructed command
@@ -77,6 +88,7 @@ def create_executable(script_path: str = "main.py",
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while creating the executable: {e}")
         return False
+
 
 import os
 import subprocess

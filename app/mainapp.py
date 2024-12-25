@@ -17,7 +17,7 @@ class APP:
 
 
     #this is a demo function which bootstraps all the compoennts from src
-    @threaded
+
     def homescreen(self):
         self.windows["main_window"].config(bg="#2C2C2C")
         homepage(self.windows["main_window"])
