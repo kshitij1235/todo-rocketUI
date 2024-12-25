@@ -1,5 +1,5 @@
 from app.Window_managment import *
-
+from vendor.Rocket import threaded
 #page files that contains everything 
 from src.homepages import*
 
@@ -7,12 +7,7 @@ import threading
 # this is the file where all the main application is strcutured 
 # this is the only file which gets all the window acess 
 
-def threaded(func):
 
-    def wrapper(*args, **kwargs):
-        thread = threading.Thread(target=func, args=args, kwargs=kwargs)
-        thread.start()
-    return wrapper
 
 class APP:
     def __init__(self) -> None:

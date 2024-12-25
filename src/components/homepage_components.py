@@ -1,8 +1,8 @@
 from customtkinter import CTkButton,CTkCheckBox,CTkFrame,CTkEntry,CTkSwitch
 from tkinter import Label
-from vendor.Rocket import log
+from vendor.Rocket import log,add_scrollbar,threaded
 import tkinter as tk
-from tkinter import Frame
+from tkinter import Frame,Canvas
 from src.helper.database import *
 from boxdb.support import get_elements
 from boxdb import update_row
@@ -98,6 +98,59 @@ def no_tasks_message(window):
         bg=COLORS["bg"],
     )
     no_task_label.pack()
+@threaded
+def todo_list(window, database, table_name):
+    """Render the list of tasks."""
+    main_frame = Frame(window, bg=COLORS["bg"], name="todolist")
+    main_frame.pack(fill="both", expand=True)
+
+    Label(main_frame, text="", bg=COLORS["bg"]).pack(pady=5)
+
+    # Fetch all tasks and statuses at once
+    task_status_list = get_all_elements(database, table_name) 
+    if not task_status_list:
+        no_tasks_message(main_frame)
+        return
+
+    # Add scrollbar to the task list
+    _, scrollable_frame = add_scrollbar(main_frame, COLORS["bg"])
+
+    def update_task_status(task, status_var):
+        new_status = "True" if status_var.get() else "False"
+        update_row(database, table_name, task, "status", new_status)
+
+    for task, status in task_status_list:
+        frame = Frame(scrollable_frame, bg=COLORS["bg"])
+        frame.pack(fill="x", padx=20, pady=5)
+
+        status_var = tk.BooleanVar(value=status)
+
+        CTkCheckBox(
+            frame,
+            text=f"{task}",
+            text_color=COLORS["text"],
+            variable=status_var,
+            corner_radius=100,
+            border_width=2,
+            checkbox_height=15,
+            checkbox_width=15,
+            font=("Arial", 14),
+            command=update_task_status(task, status_var)
+        ).pack(side="left", padx=5)
+
+        CTkButton(
+            frame,
+            text="Delete",
+            border_width=0,
+            hover_color=COLORS["hover"],
+            fg_color=COLORS["accent"],
+            text_color=COLORS["text"],
+            width=60,
+            height=28,
+            corner_radius=6,
+            command=delete_task(task, window)
+        ).pack(side="right", padx=5)
+
 
 def todo_list(window, database, table_name):
     """Render the list of tasks."""
@@ -113,12 +166,15 @@ def todo_list(window, database, table_name):
         no_tasks_message(main_frame)
         return
 
+    # Add scrollbar to the task list
+    _, scrollable_frame = add_scrollbar(main_frame, COLORS["bg"])
+
     def update_task_status(task, status_var):
         new_status = "True" if status_var.get() else "False"
         update_row(database, table_name, task, "status", new_status)
 
     for task, status in zip(task_, status_):
-        frame = Frame(main_frame, bg=COLORS["bg"])
+        frame = Frame(scrollable_frame, bg=COLORS["bg"])
         frame.pack(fill="x", padx=20, pady=5)
 
         status_var = tk.BooleanVar(value=status)
@@ -150,6 +206,7 @@ def todo_list(window, database, table_name):
             corner_radius=6,
             command=lambda task=task: delete_task(task, window)
         ).pack(side="right", padx=5)
+
 
 def add_task(window):
     """Create the add task input field and button."""

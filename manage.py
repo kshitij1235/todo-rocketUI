@@ -45,12 +45,29 @@ def built(onefile: bool) -> None:
         click.echo(f"Build failed: {e}")
     return
 
-@cli.command()
+
 @click.option('-c', '--clean', is_flag=True, help="Clean up before running the application.")
-def run(clean: bool) -> None:
+@click.option('-f', '--file', type=str, help="Specify a Python file to run.")
+@cli.command()
+def run(clean: bool, file: str) -> None:
+    """
+    Run the application. Optionally clean up or execute a Python file.
+    """
     if clean:
         cleanup_([], ["__pycache__", "build"])
-    MainApp()
+    
+    if file:
+        try:
+            print(f"Running the specified file: {file}")
+            with open(file, 'r') as f:
+                code = f.read()
+                exec(code)  # Execute the Python file content
+        except FileNotFoundError:
+            print(f"Error: File '{file}' not found.")
+        except Exception as e:
+            print(f"Error while executing the file: {e}")
+    else:
+        MainApp()
 
 @cli.command()
 def upgrade() -> None:

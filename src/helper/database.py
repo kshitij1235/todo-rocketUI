@@ -14,8 +14,7 @@ def add_task_db(task_entry, window):
         return
     add_row("rocketdb", "tasks", (task_text, False))
     task_entry.delete(0, tk.END)
-    rerender(window,homepage)
-    # rerender_component(get_element_by_name(window,"todolist"),todo_list,"rocketdb","tasks")
+    rerender_component(get_element_by_name(window,"todolist"),todo_list,"rocketdb","tasks")
 
 
 

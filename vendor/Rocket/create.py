@@ -24,3 +24,6 @@ class Rocket:
         window.title(WindowConfig["window_name"])
         window.geometry(WindowConfig["resolution"])
         return window
+
+
+
