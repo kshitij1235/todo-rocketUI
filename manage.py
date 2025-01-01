@@ -7,7 +7,6 @@ import sys
 import subprocess
 
 
-
 @click.group()
 def cli():
     pass
@@ -47,9 +46,10 @@ def built(onefile: bool) -> None:
 
 
 @click.option('-c', '--clean', is_flag=True, help="Clean up before running the application.")
+@click.option('-r', '--hotreload', is_flag=True, help="Do a hot reload")
 @click.option('-f', '--file', type=str, help="Specify a Python file to run.")
 @cli.command()
-def run(clean: bool, file: str) -> None:
+def run(clean: bool, file: str , hotreload: bool) -> None:
     """
     Run the application. Optionally clean up or execute a Python file.
     """
@@ -67,7 +67,10 @@ def run(clean: bool, file: str) -> None:
         except Exception as e:
             print(f"Error while executing the file: {e}")
     else:
-        MainApp()
+        if hotreload:
+            hot_reload_app()
+        else:
+            MainApp()
 
 @cli.command()
 def upgrade() -> None:

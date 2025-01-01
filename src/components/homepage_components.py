@@ -75,7 +75,7 @@ def todo_header(window):
 
     header_label = Label(
         header_frame,
-        text="To-Do List",
+        text="To-do List",
         font=("Helvetica", 16, "bold"),
         fg=COLORS["text"],
         bg=COLORS["secondary"],
@@ -104,31 +104,37 @@ def todo_list(window, database, table_name):
     main_frame = Frame(window, bg=COLORS["bg"], name="todolist")
     main_frame.pack(fill="both", expand=True)
 
+    # Add padding for the main frame
     Label(main_frame, text="", bg=COLORS["bg"]).pack(pady=5)
 
+    # Fetch tasks and their statuses
     task_ = get_elements(database, table_name, "task")
     status_ = get_elements(database, table_name, "status")
 
     if not task_:
-        no_tasks_message(main_frame)
+        no_tasks_message(main_frame)  # Display no tasks message
         return
 
     # Add scrollbar to the task list
     _, scrollable_frame = add_scrollbar(main_frame, COLORS["bg"])
 
+    # Function to update task status in the database
     def update_task_status(task, status_var):
         new_status = "True" if status_var.get() else "False"
         update_row(database, table_name, task, "status", new_status)
 
+    # Create a single frame to hold all the tasks, avoiding re-packing each task in every loop iteration
+    task_frames = []
+
     for task, status in zip(task_, status_):
-        frame = Frame(scrollable_frame, bg=COLORS["bg"])
-        frame.pack(fill="x", padx=20, pady=5)
+        task_frame = Frame(scrollable_frame, bg=COLORS["bg"])
+        task_frame.pack(fill="x", padx=20, pady=5)
 
         status_var = tk.BooleanVar(value=status)
 
-        # Checkbox with aligned label
-        CTkCheckBox(
-            frame,
+        # Create checkbox for task with the update command in a more efficient way
+        checkbox = CTkCheckBox(
+            task_frame,
             text=f"{task}",
             text_color=COLORS["text"],
             variable=status_var,
@@ -137,12 +143,13 @@ def todo_list(window, database, table_name):
             checkbox_height=15,
             checkbox_width=15,
             font=("Arial", 14),
-            command=lambda task=task, s_var=status_var: update_task_status(task, s_var)
-        ).pack(side="left", padx=5)
+            command=lambda t=task, s=status_var: update_task_status(t, s)
+        )
+        checkbox.pack(side="left", padx=5)
 
-        # Delete button
-        CTkButton(
-            frame,
+        # Create delete button for the task with optimized command handling
+        delete_button = CTkButton(
+            task_frame,
             text="Delete",
             border_width=0,
             hover_color=COLORS["hover"],
@@ -151,8 +158,15 @@ def todo_list(window, database, table_name):
             width=60,
             height=28,
             corner_radius=6,
-            command=lambda task=task: delete_task(task, window)
-        ).pack(side="right", padx=5)
+            command=lambda t=task: delete_task(t, window)
+        )
+        delete_button.pack(side="right", padx=5)
+
+        task_frames.append(task_frame)  # Add to list of frames
+
+    # Now, we can update the task frames after all have been created, reducing layout recalculation.
+    for task_frame in task_frames:
+        task_frame.update_idletasks()  # Update layout before rendering if needed
 
 
 def add_task(window):

@@ -2,7 +2,7 @@ from app.Window_managment import *
 from vendor.Rocket import threaded
 #page files that contains everything 
 from src.homepages import*
-
+import importlib
 import threading
 # this is the file where all the main application is strcutured 
 # this is the only file which gets all the window acess 
@@ -17,7 +17,6 @@ class APP:
 
 
     #this is a demo function which bootstraps all the compoennts from src
-
     def homescreen(self):
         self.windows["main_window"].config(bg="#2C2C2C")
         homepage(self.windows["main_window"])

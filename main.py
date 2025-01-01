@@ -9,7 +9,9 @@ def MainApp():
     window = APP()
     window.homescreen()
     root = windowManager().get_all_rwindows() 
-    root["main_window"].mainloop()
+
+    for window in root.values() : 
+        window.mainloop()
 
 
 if __name__ == '__main__':

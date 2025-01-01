@@ -7,7 +7,9 @@ Rwindows_={}
 
 
 # this is the basic main window of the application
-Rwindows_["main_window"]= Rocket().get_window(MainWindowConfig)
+Rwindows_["main_window"]= Rocket().get_window(WindowConfig=MainWindowConfig)
+Rwindows_["error"]= Rocket().get_window(title="error",locked=True,visible=False)
+
 
 # Rwindows_["error"]= Rocket().get_window()
 

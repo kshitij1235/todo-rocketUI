@@ -13,6 +13,7 @@ def add_task_db(task_entry, window):
         return
     add_row("rocketdb", "tasks", (task_text, False))
     task_entry.delete(0, tk.END)
+
     rerender_component(get_element_by_name(window,"todolist"),todo_list,"rocketdb","tasks")
 
 def toggle_mode(window):
@@ -22,5 +23,7 @@ def toggle_mode(window):
 def delete_task(task, root):
     """Delete a task and re-render the UI."""    
     from src.components.homepage_components import todo_list
+    from src.homepages import homepage
     remove_row("rocketdb", "tasks", task)
+    # rerender(window,homepage)
     rerender_component(get_element_by_name(root,"todolist"),todo_list,"rocketdb","tasks")

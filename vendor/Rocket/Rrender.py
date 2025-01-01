@@ -29,41 +29,56 @@ def rerender(root: Tk, new_page) -> None:
 
     # Iterate through all widgets and destroy them with cleanup
     for widget in get_all_widgets(root):
-        # Clean up traces or other widget-specific resources
+        # Clean up variable traces or other widget-specific resources
         try:
             if hasattr(widget, "_variable") and widget._variable:
-                widget._variable.trace_remove("write", widget._variable_callback_name)
+                # Ensure the variable has a trace callback before removing it
+                if hasattr(widget._variable, "trace_remove"):
+                    callback_name = widget._variable_callback_name
+                    # Check if the callback exists before attempting to remove it
+                    if callback_name in widget._variable.trace_vdelete("write"):
+                        widget._variable.trace_remove("write", callback_name)
+                        log(f"Trace removed from {widget}")
         except Exception as e:
             log(f"Error while cleaning up widget traces: {e}")
 
         # Safely destroy the widget
         try:
             widget.destroy()
+            log(f"Widget {widget} destroyed")
         except Exception as e:
-            log(f"Error while destroying widget: {e}")
+            log(f"Error while destroying widget {widget}: {e}")
 
     # Render the new page (with new layout)
-    new_page(root)
+    try:
+        new_page(root)
+        log("New page rendered")
+    except Exception as e:
+        log(f"Error while rendering new page: {e}")
 
-
-
-def rerender_component(parent, component_constructor, *args, **kwargs):
+def rerender_component(parent: Tk, component_constructor, *args, **kwargs):
     """
     Re-renders an individual component within the parent window.
 
     Args:
-        parent (Widget): The parent container holding the component.
+        parent (tk.Widget): The parent container holding the component.
         component_constructor (callable): A function or class to reinitialize the component.
         *args: Positional arguments to pass to the component constructor.
         **kwargs: Keyword arguments to pass to the component constructor.
     """
+    parent.update_idletasks()
+
+    # Destroy existing widgets inside the parent (if any)
     for widget in parent.winfo_children():
-        widget.pack_forget()
-    new_component = component_constructor(parent, *args, **kwargs)
-    try : 
-        new_component.pack(fill="both", expand=True)  # Adjust layout as needed
-    except Exception as e :
-        pass 
+        widget.destroy()
 
+    # Create the new component using the constructor passed in
+    try:
+        new_component = component_constructor(parent, *args, **kwargs)
 
+        # If using grid layout, you might need to define a grid configuration
+        # Example: new_component.grid(row=0, column=0, sticky="nsew")
+        new_component.grid(row=0, column=0, sticky="nsew")  # Use grid if you're using the grid layout manager
+    except Exception as e:
+        print(f"Error rendering component: {e}")
 
