@@ -11,8 +11,8 @@ class Rocket:
                    icon: str = None,
                    resolution: str = "500x700",
                    locked: bool = False,
+                   visible: bool = True,
                    WindowConfig: dict = None,
-                   visible: bool = True
                    ) -> Tk:
         '''
         Create a window and return it.

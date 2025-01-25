@@ -1,6 +1,6 @@
 from vendor.Rocket.BaseImports import *
 from vendor.Rocket.Log import *
-
+from vendor.Rocket.threading import threaded
 # This file make sure the work of how render is 
 # going to take palce in the rocket window 
 # It contains all the basic function that help 
@@ -69,8 +69,10 @@ def rerender_component(parent: Tk, component_constructor, *args, **kwargs):
     parent.update_idletasks()
 
     # Destroy existing widgets inside the parent (if any)
-    for widget in parent.winfo_children():
-        widget.destroy()
+
+    temp_widget = parent.winfo_children()
+    for widget in temp_widget: 
+        widget.pack_forget()
 
     # Create the new component using the constructor passed in
     try:
@@ -82,3 +84,19 @@ def rerender_component(parent: Tk, component_constructor, *args, **kwargs):
     except Exception as e:
         print(f"Error rendering component: {e}")
 
+def destroy_widgets_async(widgets):
+    for widget in widgets:
+        widget.after(0, widget.destroy) 
+
+
+def component_render(widgets):
+    if not isinstance(widgets, list):
+        widgets.update_idletasks() 
+        widgets.update()  
+    
+    for widget in widgets:
+        try:
+            widget.update_idletasks()  
+            widget.update()  
+        except Exception as e:
+            print(f"Error updating widget: {e}")

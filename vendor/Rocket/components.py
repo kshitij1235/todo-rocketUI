@@ -1,57 +1,91 @@
 from customtkinter import *
+from typing import Optional, Union, Tuple, Callable
 import tkinter
-from vendor.json_extractor.extract_values import *
-from typing import *
-class Components:
-    def __init__(self,window,theme) -> None:
-        self.window = window 
+from tkinter import Frame
 
-    def Rlabels(master: any,
-                width: int = 0,
-                height: int = 28,
-                corner_radius: Optional[int] = None,
-                bg_color: Union[str, Tuple[str, str]] = "transparent",
-                fg_color: Optional[Union[str, Tuple[str, str]]] = None,
-                text_color: Optional[Union[str, Tuple[str, str]]] = None,
-                text_color_disabled: Optional[Union[str, Tuple[str, str]]] = None,
+
+class Components:
+    def __init__(self, window, theme) -> None:
+        self.window = window
+        self.theme = theme 
+
+    def Rlabels(self,
+                master: any,
                 text: str = "CTkLabel",
                 font: Optional[Union[tuple, CTkFont]] = None,
-                image: Union[CTkImage, None] = None,
-                compound: str = "center",
-                anchor: str = "center",  # label anchor: center, n, e, s, w
-                wraplength: int = 0,
                 **kwargs):
-        CTkLabel()
+        """Create a label component using the theme."""
+        return CTkLabel(
+            master=master,
+            text=text,
+            font=font or ("Helvetica", 14),
+            text_color=self.theme.get_color("text"),  # Get text color from theme
+            bg_color=self.theme.get_color("bg"),  # Get background color from theme
+            **kwargs
+        )
+
+    def Rcheckbox(self,
+                  master: any,
+                  text: str = "CTkCheckBox",
+                  font: Optional[Union[tuple, CTkFont]] = None,
+                  command: Union[Callable[[], None], None] = None,
+                  **kwargs):
+        """Create a checkbox component using the theme."""
+        return CTkCheckBox(
+            master=master,
+            text=text,
+            font=font or ("Helvetica", 12),
+            text_color=self.theme.get_color("text"),  # Get text color from theme
+            hover_color=self.theme.get_color("hover"),  # Get hover color from theme
+            fg_color=self.theme.get_color("primary"),  # Get primary color from theme
+            bg_color=self.theme.get_color("bg"),  # Get background color from theme
+            command=command,
+            **kwargs
+        )
+
+    def Rframe(self,
+               master: any,
+               fg_color: Optional[str] = None,
+               **kwargs):
+        """Create a frame component using the theme."""
+        frame = Frame(
+            master=master,
+            bg=self.theme.get_color("bg"), 
+            **kwargs  
+        )
+        return frame
 
 
-        
-    def check_box(self,
-                master: any,
-                width: int = 100,
-                height: int = 24,
-                checkbox_width: int = 24,
-                checkbox_height: int = 24,
-                corner_radius: Optional[int] = None,
-                border_width: Optional[int] = None,
-                bg_color: Union[str, Tuple[str, str]] = "transparent",
-                fg_color: Optional[Union[str, Tuple[str, str]]] = None,
-                hover_color: Optional[Union[str, Tuple[str, str]]] = None,
-                border_color: Optional[Union[str, Tuple[str, str]]] = None,
-                checkmark_color: Optional[Union[str, Tuple[str, str]]] = None,
-                text_color: Optional[Union[str, Tuple[str, str]]] = None,
-                text_color_disabled: Optional[Union[str, Tuple[str, str]]] = None,
-                text: str = "CTkCheckBox",
-                font: Optional[Union[tuple, CTkFont]] = None,
-                textvariable: Union[tkinter.Variable, None] = None,
-                state: str = tkinter.NORMAL,
-                hover: bool = True,
-                command: Union[Callable[[], None], None] = None,
-                onvalue: Union[int, str] = 1,
-                offvalue: Union[int, str] = 0,
-                variable: Union[tkinter.Variable, None] = None,
-                ):
-        CTkCheckBox(self.window,
-            text="edit the app/main",
-            text_color="black",
-            hover_color="#C29130",
-            fg_color="#C29130")
+
+    def Rbutton(self, master, text="", command=None, **kwargs):
+        """Create a custom button with reusable settings."""
+        return CTkButton(
+            master=master,
+            text=text,
+            command=command,
+            fg_color=self.theme.get_color("accent"),
+            hover_color=self.theme.get_color("hover"),
+            text_color=self.theme.get_color("text"),
+            **kwargs  # Allow overriding defaults
+        )
+    def Rentry(self,
+               master: any,
+               placeholder_text: str = "",
+               width: int = 200,
+               height: int = 35,
+               border_width: int = 1,
+               font: Optional[Union[tuple, CTkFont]] = None,
+               **kwargs):
+        """Create an entry component using the theme."""
+        return CTkEntry(
+            master=master,
+            placeholder_text=placeholder_text,
+            width=width,
+            height=height,
+            border_width=border_width,
+            text_color=self.theme.get_color("text"),
+            fg_color=self.theme.get_color("bg"),
+            corner_radius=5,
+            font=font or ("Helvetica", 14),
+            **kwargs
+        )

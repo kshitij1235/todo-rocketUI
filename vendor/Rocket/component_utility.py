@@ -14,24 +14,22 @@ def add_scrollbar(parent, bg_color):
         - canvas: The Canvas widget containing the scrollable frame.
         - scrollable_frame: The Frame widget where content can be added.
     """
-    # Create a canvas and a scrollbar
+
+    
     canvas = Canvas(parent, bg=bg_color, highlightthickness=0)
     scrollbar = tk.Scrollbar(parent, orient="vertical", command=canvas.yview)
     scrollable_frame = Frame(canvas, bg=bg_color)
 
-    # Configure the canvas
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
     canvas.configure(yscrollcommand=scrollbar.set)
 
-    # Pack the canvas and scrollbar
     canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
 
-    # Ensure the scroll region is updated when the contents of the frame change
     def on_frame_configure(event):
         canvas.update_idletasks()
-        bbox = canvas.bbox("all")  # Get bounding box of the scrollable frame
-        if bbox:  # Ensure bbox is not None
+        bbox = canvas.bbox("all")  
+        if bbox:  
             canvas.configure(scrollregion=bbox)
 
     scrollable_frame.bind("<Configure>", on_frame_configure)
