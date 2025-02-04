@@ -1,7 +1,7 @@
 from customtkinter import CTkSwitch
 from tkinter import Label, Frame
 import tkinter as tk
-from src.Theme_controller import app_theme  
+from src.ControllerManager import app_theme  
 from vendor.Rocket.components import Components
 from vendor.Rocket import rerender
 

@@ -7,7 +7,7 @@ from src.helper.database import *
 from boxdb.support import get_elements
 from boxdb import update_row
 from vendor.Rocket import Components
-from src.Theme_controller import app_theme
+from src.ControllerManager import app_theme
 
 def add_task(window):
     """Create the add task input field and button."""

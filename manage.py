@@ -5,9 +5,24 @@ from main import MainApp
 import os
 import sys
 import subprocess
+from click import echo
 
 
-@click.group()
+
+class CustomGroup(click.Group):
+    def format_help(self, ctx, formatter):
+        echo("""
+    ███████╗ ██████╗  ██████╗ ██╗  ██╗███████╗████████╗    ██╗   ██╗██╗ 
+    ██╔══██║██╔═══██╗██╔════╝ ██║ ██║ ██╔════╝╚══██╔══╝    ██║   ██║██║ 
+    ██████╔╝██║   ██║██║      ████    █████╗     ██║       ██║   ██║██║ 
+    ██╔═██║ ██║   ██║██║      ██╔═██║ ██╔══╝     ██║       ██║   ██║██║ 
+    ██║ ██║  ██████╔╝╚ ██████╔██║  ██║███████╗   ██║       ████████║██║ 
+    ╚═╝ ╚═╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝   ╚═╝       ╚══════╝╚═╝
+    CLI TOOL FOR YOU !!!!
+        """)
+        super().format_help(ctx, formatter)
+
+@click.group(cls=CustomGroup)
 def cli():
     pass
 

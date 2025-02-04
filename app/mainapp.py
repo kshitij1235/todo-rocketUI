@@ -4,6 +4,7 @@ from vendor.Rocket import threaded
 from src.homepages import*
 import importlib
 import threading
+from app.GlobStorageWindow import *
 # this is the file where all the main application is strcutured 
 # this is the only file which gets all the window acess 
 
@@ -12,6 +13,7 @@ import threading
 class APP:
     def __init__(self) -> None:
         self.windows = windowManager().get_all_rwindows()  
+        
 
     # make function in the class  where you club all the components, it is like creating a page of tkinter 
 
