@@ -45,3 +45,11 @@ def add_scrollbar(parent, bg_color):
     canvas.bind_all("<MouseWheel>", on_mousewheel)
 
     return canvas, scrollable_frame
+
+
+
+
+
+#TODO implment bottom bar 
+class BottomBar:
+    ...
