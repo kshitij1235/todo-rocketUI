@@ -41,4 +41,5 @@ def add_task(window):
         command=lambda: add_task_db(task_entry, window)
     )
     add_task_button.pack(side="right")
-
+    
+    return bottom_frame

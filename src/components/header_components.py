@@ -10,16 +10,16 @@ from vendor.Rocket import rerender
 
 def check_toggle_state(window, toggle):
     """Check the state of the toggle and switch themes accordingly."""
-    from src.homepages import homepage
+    from src.homepages import main_screen
     if app_theme.isdark():
         app_theme.switch_theme(False)  
     else:
         app_theme.switch_theme(True)   
-    rerender(window,homepage)
+    rerender(window,main_screen)
 
       
 
-def todo_header(window):
+def todo_header(window,title):
     """Create the header for the to-do list."""
 
     comp = Components(window , app_theme)
@@ -28,7 +28,7 @@ def todo_header(window):
     header_frame.pack(fill="x", anchor="n")
 
     header_label = comp.Rlabels(header_frame,
-    text="To-do List",
+    text=title,
     font=("Helvetica", 16, "bold"),
     pady=8
     )
@@ -43,3 +43,6 @@ def todo_header(window):
         toggle.deselect()
     
     toggle.configure(command=lambda: check_toggle_state(window, toggle))
+
+    return header_frame
+
