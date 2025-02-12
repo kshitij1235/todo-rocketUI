@@ -20,9 +20,15 @@ class APP:
 
     #this is a demo function which bootstraps all the compoennts from src
     def homescreen(self):
-        self.windows["main_window"].config(bg="#2C2C2C")
-        homepage(self.windows["main_window"])
 
+        # all the content wil be shown in the main frame 
+        self.windows["main_window"].config(bg="#2C2C2C")
+        main_frame  = Frame(self.windows["main_window"], bg="#2C2C2C")
+        homepage(main_frame)
+        main_frame.pack(expand=True , fill="both")
+
+        # bottom navigation bar in the mainwindow 
+        main_screen(self.windows["main_window"])
         # [TODO] save point for mainloop
         # self.windows["main_window"].mainloop()
 

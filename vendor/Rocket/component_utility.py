@@ -1,5 +1,19 @@
 import tkinter as tk
 from tkinter import Canvas  ,Frame
+from functools import wraps
+
+PAGES = {}
+
+def page(func):
+    @wraps(func)
+    def wrapper(window):
+        frame = Frame(window)
+        result = func(frame)  #
+        frame.pack(expand=True, fill="both")  
+        PAGES[func.__name__] = frame  
+        return frame
+    return wrapper
+
 
 def add_scrollbar(parent, bg_color):
     """

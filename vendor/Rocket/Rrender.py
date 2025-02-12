@@ -72,7 +72,7 @@ def rerender_component(parent: Tk, component_constructor, *args, **kwargs):
 
     temp_widget = parent.winfo_children()
     for widget in temp_widget: 
-        widget.pack_forget()
+        widget.destroy()
 
     # Create the new component using the constructor passed in
     try:
