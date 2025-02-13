@@ -27,3 +27,4 @@ def delete_task(task, root):
     remove_row("rocketdb", "tasks", task)
     # rerender(window,homepage)
     rerender_component(get_element_by_name(root,"todolist"),todo_list,"rocketdb","tasks")
+    

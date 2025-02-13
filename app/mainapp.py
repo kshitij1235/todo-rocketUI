@@ -28,7 +28,7 @@ class APP:
         main_frame.pack(expand=True , fill="both")
 
         # bottom navigation bar in the mainwindow 
-        main_screen(self.windows["main_window"])
+        main_screen(main_frame)
         # [TODO] save point for mainloop
         # self.windows["main_window"].mainloop()
 

@@ -3,7 +3,6 @@ from typing import Optional, Union, Tuple, Callable
 import tkinter
 from tkinter import Frame
 
-
 class Components:
     def __init__(self, window, theme) -> None:
         self.window = window
