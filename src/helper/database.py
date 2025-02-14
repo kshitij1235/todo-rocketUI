@@ -1,5 +1,5 @@
 from vendor.Rocket import rerender,rerender_component,threaded , get_element_by_name
-from boxdb import remove_row,add_row
+from vendor.boxdb import remove_row,add_row
 import tkinter as tk
 
 def add_task_db(task_entry, window):

@@ -13,7 +13,7 @@ the row methods
 # there is also a checkup lib that helps with the basic checkups
 # that need to be performed on the table 
 
-from boxdb.support import(
+from vendor.boxdb.support import(
     get_columns,
     get_primary_column,
     max_row_size,
@@ -22,9 +22,9 @@ from boxdb.support import(
 )
 
 
-from boxdb.settings import FORBIDDEN_WORDS
+from vendor.boxdb.settings import FORBIDDEN_WORDS
 
-from boxdb.FileWriteup import(
+from vendor.boxdb.FileWriteup import(
     write_element_in_primary,
     append_element_in_not_null,
     add_blank_lines_in_columns,
@@ -35,12 +35,12 @@ from boxdb.FileWriteup import(
     push_list_elements_in_line
 )
 
-from boxdb.checkups import(
+from vendor.boxdb.checkups import(
     column_exists,
     check_table
 )
 
-from boxdb.logs import(
+from vendor.boxdb.logs import(
     logerror,
     logWarning,
     loginfo

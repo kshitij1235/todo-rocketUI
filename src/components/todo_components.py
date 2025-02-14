@@ -1,9 +1,9 @@
 from customtkinter import CTkButton, CTkCheckBox
-from boxdb import update_row 
-from boxdb.support import get_elements
+from vendor.boxdb import update_row 
+from vendor.boxdb.support import get_elements
 from vendor.Rocket import add_scrollbar, component_render
 from vendor.Rocket.components import Components
-from src.ControllerManager import app_theme
+from app.ControllerManager import app_theme
 import tkinter as tk
 from src.helper.database import *
 

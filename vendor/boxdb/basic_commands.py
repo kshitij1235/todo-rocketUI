@@ -9,20 +9,20 @@ get_table() -> fixed bugs
 '''
 
 import asyncio
-from boxdb.core import writer
+from vendor.boxdb.core import writer
 from tabulate import tabulate
-from boxdb.settings import PRIMARY_KEY
-from boxdb.readtable import row_table
-from boxdb.support import (get_primary_column,
+from vendor.boxdb.settings import PRIMARY_KEY
+from vendor.boxdb.readtable import row_table
+from vendor.boxdb.support import (get_primary_column,
 get_columns,AddFlagsToColumns )
 
-from boxdb.checkups import (column_exists,
+from vendor.boxdb.checkups import (column_exists,
 primary_key_exists,
 check_priamary_column,
 check_table)
 
-from boxdb.FileWriteup import write_element_in_primary
-from boxdb.logs import logWarning, loginfo, logerror
+from vendor.boxdb.FileWriteup import write_element_in_primary
+from vendor.boxdb.logs import logWarning, loginfo, logerror
 
 
 #TODO row_limit need to be implemented

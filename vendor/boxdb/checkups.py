@@ -10,17 +10,17 @@ from os import path,stat
 
 from os.path import exists
 
-from boxdb.core import word_find
+from vendor.boxdb.core import word_find
 
-from boxdb.support import(
+from vendor.boxdb.support import(
     get_columns_datatype,
     get_elements,
     get_primary_column,
     get_columns)
 
-from boxdb.settings import TABLE,COLUMNS
+from vendor.boxdb.settings import TABLE,COLUMNS
 
-from boxdb.logs import logWarning,logerror
+from vendor.boxdb.logs import logWarning,logerror
 
 def check_table(database,table_name,push_error=True):
     """

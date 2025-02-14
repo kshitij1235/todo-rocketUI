@@ -5,7 +5,7 @@ boxdb/tempo_core.py - version 1.4.6
 '''
 
 
-from boxdb.core import writer, reader
+from vendor.boxdb.core import writer, reader
 
 
 
@@ -16,7 +16,7 @@ def extract_keys(filename):
     2)finds for each specific line where '\n' is present(this means new line)
     3)and append every thing before ':' and append it in a list
     """
-    from boxdb.support import  allot_values,collab_words_in_list
+    from vendor.boxdb.support import  allot_values,collab_words_in_list
     txt_file_data=list(reader(filename))
     temp = []
     keys = []
@@ -38,7 +38,7 @@ def extract_keys(filename):
 
 def extract_values(filename):
     """extract values from file"""
-    from boxdb.support import  allot_values,collab_words_in_list
+    from vendor.boxdb.support import  allot_values,collab_words_in_list
     temp = []
     values = []
     txt_file_data=list(reader(filename))

@@ -1,21 +1,22 @@
 from customtkinter import CTkSwitch
 from tkinter import Label, Frame
 import tkinter as tk
-from src.ControllerManager import app_theme  
+from app.ControllerManager import app_theme  
 from vendor.Rocket.components import Components
 from vendor.Rocket import rerender
-
+from app.ControllerManager import save_state
 
 
 
 def check_toggle_state(window, toggle):
     """Check the state of the toggle and switch themes accordingly."""
-    from src.homepages import main_screen
+    from src.homepages import homepage
     if app_theme.isdark():
         app_theme.switch_theme(False)  
     else:
-        app_theme.switch_theme(True)   
-    rerender(window,main_screen)
+        app_theme.switch_theme(True)  
+
+    rerender(window, save_state.AccessMemorySectionVar("global","current_page"))
 
       
 

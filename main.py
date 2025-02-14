@@ -1,12 +1,11 @@
 from app.mainapp import APP
 from Rocket import RELEASE
-from app.Window_managment import *
-# [TODO] make a debug version 
+from app.Rwindows.Window_managment import *
+from tkinter import Tk
 
-
-
+# running the main app 
 def MainApp():
-    window = APP()
+    window:Tk = APP()
     window.homescreen()
     root = windowManager().get_all_rwindows() 
 

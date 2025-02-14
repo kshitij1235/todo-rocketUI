@@ -4,10 +4,10 @@ from vendor.Rocket import log,add_scrollbar,threaded,component_render
 import tkinter as tk
 from tkinter import Frame,Canvas
 from src.helper.database import *
-from boxdb.support import get_elements
-from boxdb import update_row
+from vendor.boxdb.support import get_elements
+from vendor.boxdb import update_row
 from vendor.Rocket import Components
-from src.ControllerManager import app_theme
+from app.ControllerManager import app_theme
 
 def add_task(window):
     """Create the add task input field and button."""

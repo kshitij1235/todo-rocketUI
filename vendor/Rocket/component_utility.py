@@ -2,20 +2,10 @@ import tkinter as tk
 from tkinter import Canvas  ,Frame
 from functools import wraps
 from vendor.Rocket.components import Components
-from src.ControllerManager import app_theme
+from app.ControllerManager import app_theme
 from vendor.Rocket import log
 from customtkinter import CTkFrame, CTkButton
-
-
-def page(func):
-    @wraps(func)
-    def wrapper(window):
-        frame = Frame(window)
-        result = func(frame)  #
-        frame.pack(expand=True, fill="both")  
-        PAGES[func.__name__] = frame  
-        return frame
-    return wrapper
+from app.ControllerManager import save_state
 
 
 def add_scrollbar(parent, bg_color):
@@ -65,7 +55,7 @@ def add_scrollbar(parent, bg_color):
 
 
 class BottomNavBar:
-    def __init__(self,window , main_frame):
+    def __init__(self, window, main_frame):
         self.window = window
         self.nav_frame = CTkFrame(self.window, fg_color="gray", height=50)
         self.nav_frame.pack(side="bottom", fill="x")
@@ -109,3 +99,4 @@ class BottomNavBar:
                 widget.pack_forget()
         self.pages[key](self.main_frame).pack(expand=True, fill="both")
       
+        save_state.AssingValue("global","current_page",component)

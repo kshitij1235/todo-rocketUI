@@ -9,7 +9,7 @@ from typing import Literal
 class SaveState:
 
     def __init__(self):
-        self._storage: dict = {"global": []}
+        self._storage: dict = {"global": {}}
         self._keys: list = ["global"]
 
     def UpdateKeys(self) -> None:
@@ -27,6 +27,10 @@ class SaveState:
         if section_name in self._storage:
             del self._storage[section_name]
             self.UpdateKeys()
+
+    def AssingValue(self ,section:str , key:str , value:str):
+        self._storage[section][key]=value
+        print(self._storage)
 
     def AccessMemorySection(self, section_name: Literal["global", "local", "cache"] = "global"):
         return copy(self._storage.get(section_name, []))

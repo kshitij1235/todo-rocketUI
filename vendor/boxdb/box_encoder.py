@@ -1,5 +1,5 @@
 from cryptography.fernet import Fernet
-from boxdb.core import reader,byte_reader
+from vendor.boxdb.core import reader,byte_reader
 
 
 

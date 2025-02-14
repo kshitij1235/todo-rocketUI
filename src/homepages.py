@@ -1,17 +1,7 @@
 from src.components.todo_components import todo_list
 from src.components.bottom_bar_component import add_task
-from vendor.Rocket import page
 from src.navigation_bar import create_bottom_nav
 from tkinter import Frame
-from vendor.Rocket.component_utility import BottomNavBar
-
-def main_screen(main_frame):
-    from app.Window_managment import windowManager
-    window = windowManager().get_all_rwindows()["main_window"]
-    nav = BottomNavBar(window,main_frame)
-    nav.add_option("Home", homepage, "homepage") \
-   .add_option("Profile", settings, "settings") \
-   .build()
 
 
 def homepage(window)->Frame: 

@@ -1,21 +1,22 @@
 
-DARK_COLORS = {
-    "bg": "#18181B",        # Zinc-900 equivalent
-    "secondary": "#27272A",  # Zinc-800 equivalent
-    "accent": "#3F3F46",    # Zinc-700 equivalent
-    "hover": "#52525B",     # Zinc-600 equivalent
-    "text": "#FFFFFF",      # White text
-    "subtext": "#A1A1AA",   # Zinc-400 equivalent
-    "input_bg": "#FFFFFF",  # White background for input
-    "input_text": "#000000" # Black text for input
-}
 LIGHT_COLORS = {
-    "bg": "#FFFFFF",        # White background
-    "secondary": "#F0F0F0",  # Very light gray background for sections
-    "accent": "#D0D0D0",    # Light gray accent color
-    "hover": "#CCCCCC",     # Medium gray hover effect
-    "text": "#000000",      # Black text for better contrast
-    "subtext": "#333333",   # Darker gray for subtext
-    "input_bg": "#FFFFFF",  # White background for input fields
-    "input_text": "#000000" # Black text for input fields
+    "bg": "#FFFFFF",  # Light background
+    "secondary": "#F0F0F0",  # Light secondary
+    "accent": "#D0D0D0",  # Accent color for light mode
+    "hover": "#CCCCCC",  # Hover effect in light mode
+    "text": "#000000",  # Text color
+    "subtext": "#333333",  # Subtext color in light mode
+    "input_bg": "#FFFFFF",  # Input field background
+    "input_text": "#000000"  # Input text color
+}
+
+DARK_COLORS = {
+    "bg": "#18181B",  # Dark background
+    "secondary": "#27272A",  # Dark secondary
+    "accent": "#3F3F46",  # Accent color for dark mode
+    "hover": "#52525B",  # Hover effect in dark mode
+    "text": "#FFFFFF",  # Text color
+    "subtext": "#A1A1AA",  # Subtext color in dark mode
+    "input_bg": "#FFFFFF",  # Input field background
+    "input_text": "#000000"  # Input text color
 }
