@@ -706,3 +706,90 @@ SUCCESS:ROWS : 'as' deleted sucessfully
 SUCCESS:ROWS : 'asd' deleted sucessfully
 SUCCESS:ROWS : 'dasd' deleted sucessfully
 SUCCESS:ROW : sucessfully added to 'tasks'
+<<<<<<< HEAD
+=======
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'da' deleted sucessfully
+SUCCESS:ROWS : 'as' deleted sucessfully
+SUCCESS:ROWS : 'asd' deleted sucessfully
+SUCCESS:ROWS : 'd' deleted sucessfully
+SUCCESS:ROWS : 'sadasdas' deleted sucessfully
+SUCCESS:ROWS : 'sdasdasd' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'da' deleted sucessfully
+SUCCESS:ROWS : 'sdasdas' deleted sucessfully
+SUCCESS:ROWS : 'dsada' deleted sucessfully
+SUCCESS:ROWS : 'as' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'asd' deleted sucessfully
+SUCCESS:ROWS : 'dsda' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'd' deleted sucessfully
+SUCCESS:ROWS : 'sasdas' deleted sucessfully
+SUCCESS:ROWS : 'sd' deleted sucessfully
+SUCCESS:ROWS : 'dsada' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'sdasda' deleted sucessfully
+SUCCESS:ROWS : 'dsfsdfds' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'dasda' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'dasdas' deleted sucessfully
+SUCCESS:ROWS : 'das' deleted sucessfully
+SUCCESS:ROWS : 'd' deleted sucessfully
+SUCCESS:ROWS : 'asd' deleted sucessfully
+SUCCESS:ROWS : 'as' deleted sucessfully
+SUCCESS:ROWS : 'dsad' deleted sucessfully
+SUCCESS:ROWS : 'da' deleted sucessfully
+SUCCESS:ROWS : 'dasdasda' deleted sucessfully
+SUCCESS:ROWS : 'dasdasd' deleted sucessfully
+SUCCESS:ROWS : 'dsdfsadfs' deleted sucessfully
+SUCCESS:ROWS : 'df' deleted sucessfully
+SUCCESS:ROWS : 'sadf' deleted sucessfully
+SUCCESS:ROWS : 'sd' deleted sucessfully
+SUCCESS:ROWS : 'dfa' deleted sucessfully
+SUCCESS:ROWS : 'f' deleted sucessfully
+SUCCESS:ROWS : 'fsdfa' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROWS : 'da' deleted sucessfully
+SUCCESS:ROWS : 'd' deleted sucessfully
+SUCCESS:ROWS : 'as' deleted sucessfully
+SUCCESS:ROWS : 'asd' deleted sucessfully
+SUCCESS:ROWS : 'dasd' deleted sucessfully
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+SUCCESS:ROW : sucessfully added to 'tasks'
+>>>>>>> 44cb9b249b08fc59951776c19b2aee03d7b487df

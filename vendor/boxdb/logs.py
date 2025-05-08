@@ -1,8 +1,8 @@
 import contextlib
-from boxdb.core import reader,writer
+from vendor.boxdb.core import reader,writer
 import logging
 from colorama import init , Fore , Style
-from boxdb.settings import (ERRORLOGS,
+from vendor.boxdb.settings import (ERRORLOGS,
 INFOLOGS,
 WARNINGLOGS
 )

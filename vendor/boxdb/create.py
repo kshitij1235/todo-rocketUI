@@ -9,12 +9,12 @@ made chaneges
 '''
 
 from os import chdir, mkdir,listdir
-from boxdb.box_encoder import generate_filekey
-from boxdb.core import writer
-from boxdb.checkups import check_database, check_table
-from boxdb.logs import logerror 
-from boxdb.tempo_core import add_data,extract_data
-from boxdb.settings import TABLE_METADATA,TABLE,COLUMNS_DATA
+from vendor.boxdb.box_encoder import generate_filekey
+from vendor.boxdb.core import writer
+from vendor.boxdb.checkups import check_database, check_table
+from vendor.boxdb.logs import logerror 
+from vendor.boxdb.tempo_core import add_data,extract_data
+from vendor.boxdb.settings import TABLE_METADATA,TABLE,COLUMNS_DATA
 
 
 def get_detail(database,table_name):

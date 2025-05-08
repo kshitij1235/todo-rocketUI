@@ -1,10 +1,10 @@
-from boxdb.settings import COLUMNS
+from vendor.boxdb.settings import COLUMNS
 
-from boxdb.support import (get_content,
+from vendor.boxdb.support import (get_content,
 get_columns,
 max_row_size)
 
-from boxdb.checkups import (table_struture_exists,
+from vendor.boxdb.checkups import (table_struture_exists,
 check_table)
 
 async def row_table(database,table_name, columns,limit_row=None):

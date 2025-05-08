@@ -7,4 +7,4 @@ VERSION = "0.0"
 # A boolean flag indicating if this is a release version.
 # - If True, the application is considered production-ready.
 # - If False, it indicates a development or pre-release version.
-RELEASE = True
+RELEASE = False

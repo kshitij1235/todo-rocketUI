@@ -22,10 +22,10 @@
 # SOFTWARE.
 '''
 
-from boxdb.create import *
-from boxdb.rows import *
-from boxdb.basic_commands import *
-from boxdb.auth import *
-from boxdb.columns import *
-from boxdb.logs import showlogs
+from vendor.boxdb.create import *
+from vendor.boxdb.rows import *
+from vendor.boxdb.basic_commands import *
+from vendor.boxdb.auth import *
+from vendor.boxdb.columns import *
+from vendor.boxdb.logs import showlogs
 

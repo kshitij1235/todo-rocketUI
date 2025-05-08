@@ -1,4 +1,4 @@
-from app.Theme_Manager import ThemeManager
+from app.Themes.Theme_Manager import ThemeManager
 from app.GlobStorageWindow.Rocket import SaveState
 
 # load themes here 

@@ -1,11 +1,11 @@
 from os import remove
-from boxdb.checkups import column_exists
-from boxdb.tempo_core import(
+from vendor.boxdb.checkups import column_exists
+from vendor.boxdb.tempo_core import(
     add_data,
     edit_data,
     remove_value
 )
-from boxdb.core import(
+from vendor.boxdb.core import(
     delete_specific_line,
     word_search_line,
     writer,
@@ -13,7 +13,7 @@ from boxdb.core import(
     read_specific_line
 )
 
-from boxdb.settings import(
+from vendor.boxdb.settings import(
     COLUMNS_DATA,
     FORBIDDEN_COLUMNS,
     FORBIDDEN_WORDS,
@@ -23,11 +23,11 @@ from boxdb.settings import(
     UNIQUE
 )
 
-from boxdb.logs import(
+from vendor.boxdb.logs import(
     logerror,
     loginfo
 )
-from boxdb.support import get_forbidden_words
+from vendor.boxdb.support import get_forbidden_words
 
 #FIXME might need changes
 def remove_column_and_file(database,table_name, element):

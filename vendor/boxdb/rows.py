@@ -1,7 +1,7 @@
-from boxdb.core import delete_specific_line
-from boxdb.settings import COLUMNS
+from vendor.boxdb.core import delete_specific_line
+from vendor.boxdb.settings import COLUMNS
 
-from boxdb.support import (
+from vendor.boxdb.support import (
     convert_list_elements_to_string,
     get_forbidden_columns,
     get_primary_column,
@@ -10,7 +10,7 @@ from boxdb.support import (
     get_columns,
 )
 
-from boxdb.FileWriteup import(
+from vendor.boxdb.FileWriteup import(
     replace_column_element_with_pk_refrence,
     word_search_line,
     replace_column_element_with_pk_refrence,
@@ -18,7 +18,7 @@ from boxdb.FileWriteup import(
     delete_a_specific_row
 )
 
-from boxdb.checkups import(
+from vendor.boxdb.checkups import(
     row_element_exist,
     primary_key_exists,
     empty_table,
@@ -26,7 +26,7 @@ from boxdb.checkups import(
     check_datatypes
 )
 
-from boxdb.logs import(
+from vendor.boxdb.logs import(
     logerror,
     loginfo,
 )

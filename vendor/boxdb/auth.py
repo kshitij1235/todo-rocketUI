@@ -6,10 +6,10 @@ This file contain code for
 
 '''
 
-from boxdb.core import word_search_line, read_specific_line
-from boxdb.support import get_columns, get_primary_column
-from boxdb.logs import logerror
-from boxdb.settings import COLUMNS
+from vendor.boxdb.core import word_search_line, read_specific_line
+from vendor.boxdb.support import get_columns, get_primary_column
+from vendor.boxdb.logs import logerror
+from vendor.boxdb.settings import COLUMNS
 
 def chech_rows(database,table_name, column_name, user_input):
     """

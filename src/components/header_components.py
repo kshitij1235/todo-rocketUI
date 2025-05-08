@@ -1,10 +1,10 @@
 from customtkinter import CTkSwitch
 from tkinter import Label, Frame
 import tkinter as tk
-from src.ControllerManager import app_theme  
+from app.ControllerManager import app_theme  
 from vendor.Rocket.components import Components
 from vendor.Rocket import rerender
-
+from app.ControllerManager import save_state
 
 
 
@@ -14,12 +14,13 @@ def check_toggle_state(window, toggle):
     if app_theme.isdark():
         app_theme.switch_theme(False)  
     else:
-        app_theme.switch_theme(True)   
-    rerender(window,homepage)
+        app_theme.switch_theme(True)  
+
+    rerender(window, save_state.AccessMemorySectionVar("global","current_page"))
 
       
 
-def todo_header(window):
+def todo_header(window,title):
     """Create the header for the to-do list."""
 
     comp = Components(window , app_theme)
@@ -28,7 +29,7 @@ def todo_header(window):
     header_frame.pack(fill="x", anchor="n")
 
     header_label = comp.Rlabels(header_frame,
-    text="To-do List",
+    text=title,
     font=("Helvetica", 16, "bold"),
     pady=8
     )
@@ -43,3 +44,6 @@ def todo_header(window):
         toggle.deselect()
     
     toggle.configure(command=lambda: check_toggle_state(window, toggle))
+
+    return header_frame
+

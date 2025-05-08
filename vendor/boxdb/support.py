@@ -8,18 +8,18 @@ AddFlagsToColumns()->fixed major bug
 
 '''
 
-from boxdb.core import(read_specific_line,
+from vendor.boxdb.core import(read_specific_line,
 get_limited_lines,
 number_of_lines)
 
-from boxdb.tempo_core import(
+from vendor.boxdb.tempo_core import(
     extract_keys,
     extract_values
 )
 
-from boxdb.logs import logerror
+from vendor.boxdb.logs import logerror
 
-from boxdb.settings import (FORBIDDEN_COLUMNS, 
+from vendor.boxdb.settings import (FORBIDDEN_COLUMNS, 
 FORBIDDEN_WORDS, 
 PRIMARY_KEY,
 NOT_NULL,
