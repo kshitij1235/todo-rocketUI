@@ -706,8 +706,6 @@ SUCCESS:ROWS : 'as' deleted sucessfully
 SUCCESS:ROWS : 'asd' deleted sucessfully
 SUCCESS:ROWS : 'dasd' deleted sucessfully
 SUCCESS:ROW : sucessfully added to 'tasks'
-<<<<<<< HEAD
-=======
 SUCCESS:ROW : sucessfully added to 'tasks'
 SUCCESS:ROW : sucessfully added to 'tasks'
 SUCCESS:ROW : sucessfully added to 'tasks'
@@ -792,4 +790,3 @@ SUCCESS:ROW : sucessfully added to 'tasks'
 SUCCESS:ROW : sucessfully added to 'tasks'
 SUCCESS:ROW : sucessfully added to 'tasks'
 SUCCESS:ROW : sucessfully added to 'tasks'
->>>>>>> 44cb9b249b08fc59951776c19b2aee03d7b487df

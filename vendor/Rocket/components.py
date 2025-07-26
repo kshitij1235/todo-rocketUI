@@ -19,7 +19,7 @@ class Components:
             text=text,
             font=font or ("Helvetica", 14),
             text_color=self.theme.get_color("text"),  # Get text color from theme
-            bg_color=self.theme.get_color("bg"),  # Get background color from theme
+            bg_color=self.theme.get_color("bg"), 
             **kwargs
         )
 

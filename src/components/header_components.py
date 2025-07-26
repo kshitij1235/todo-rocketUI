@@ -4,7 +4,7 @@ import tkinter as tk
 from app.ControllerManager import app_theme  
 from vendor.Rocket.components import Components
 from vendor.Rocket import rerender
-from app.ControllerManager import save_state
+from app.ControllerManager import save_state,icon
 
 
 
@@ -19,12 +19,10 @@ def check_toggle_state(window, toggle):
     rerender(window, save_state.AccessMemorySectionVar("global","current_page"))
 
       
-
 def todo_header(window,title):
     """Create the header for the to-do list."""
 
     comp = Components(window , app_theme)
-
     header_frame = comp.Rframe(window)
     header_frame.pack(fill="x", anchor="n")
 

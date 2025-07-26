@@ -1,8 +1,5 @@
 False 
-<<<<<<< HEAD
-=======
 False 
 False 
 False 
 False 
->>>>>>> 44cb9b249b08fc59951776c19b2aee03d7b487df
